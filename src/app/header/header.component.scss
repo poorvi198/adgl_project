@@ -1,6 +1,6 @@
 .header {
   display: flex;
-  height: 70px;
+  height: 4.5rem;
   justify-content: space-between;
   border-bottom: 1px solid gray;
   .left-header-items {
@@ -13,5 +13,10 @@
     list-style: none;
     display: flex;
     margin-right: 1rem;
+    padding: 1rem;
+
+    a{
+      text-decoration: none;  
+    }
   }
 }
