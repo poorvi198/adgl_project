@@ -1,0 +1,14 @@
+.hero-container {
+  position: relative;
+  height: 30vh;
+  .hero-image {
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+  }
+  .certificate-btn {
+    position: absolute;
+    top: 37%;
+    left: 45%;
+  }
+}
