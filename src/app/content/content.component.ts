@@ -9,13 +9,13 @@ import {APP_BASE_HREF} from '@angular/common';
 })
 export class ContentComponent implements OnInit {
 
-  constructor(private httpService: HttpClient, @Inject(APP_BASE_HREF) private baseHref: string) { }
+  constructor(private httpService: HttpClient, ) { }
 
   ngOnInit(): void {
   }
 
   // tslint:disable-next-line:typedef
   testApi() {
-    this.httpService.post(`${this.baseHref}/store`, {data: {model : '123456789'}});
+    this.httpService.post(`/store`, {data: {model : '123456789'}}).subscribe();
   }
 }
