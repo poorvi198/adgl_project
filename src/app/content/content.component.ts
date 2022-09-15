@@ -16,6 +16,7 @@ export class ContentComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   testApi() {
-    this.httpService.post(`/api/store.php`, {data: {model : '123456789'}}).subscribe();
+    const car = {model:'123'};
+    this.httpService.post(`/api/store.php`, {data:car}).subscribe();
   }
 }
