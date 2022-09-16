@@ -9,6 +9,8 @@ import {APP_BASE_HREF} from '@angular/common';
 })
 export class ContentComponent implements OnInit {
 
+  licenceId = '';
+
   constructor(private httpService: HttpClient, ) { }
 
   ngOnInit(): void {
