@@ -1,29 +1,23 @@
 <!--hero image container-->
 <div class="hero-container">
   <img class="hero-image" src="/assets/images/download.png">
-  <button type="button" data-bs-toggle="modal" data-bs-target="#certificateModal" class="btn btn-primary btn-lg certificate-btn"> Check Cerificates</button>
+  <button type="button" class="btn btn-primary btn-lg certificate-btn" (click)="openLicenceModal(licenceModal)"> Check Cerificates</button>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="certificateModal" tabindex="-1" aria-labelledby="certificateModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header p-2">
-        <h5 class="modal-title" id="certificateModalLabel">Enter Licence No.</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body pt-4 pb-4 ps-2 pe-2">
-        <form class="d-flex">
-          <input class="form-control me-3" type="text" name="licenceId" [(ngModel)]="licenceId">
-          <button type="submit" class="btn btn-primary">Get Certificate</button>
-        </form>
-      </div>
-    </div>
+<ng-template #licenceModal let-modal>
+  <div class="modal-header pt-2 pb-2 ps-3 pe-3">
+    <h4 class="modal-title" id="modal-basic-title">Enter Licence No.</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
-</div>
+  <div class="modal-body pt-4 pb-4 ps-3 pe-3">
+    <form class="input-group" #licenceForm=ngForm (ngSubmit)="getCertificate(licenceForm); modal.close('closed modal')">
+      <input class="form-control" type="text" name="licenceId" [(ngModel)]="licenceId">
+      <button type="submit" class="btn btn-primary">Get Certificate</button>
+    </form>
+  </div>
+</ng-template>
 
 <!-- Image and about us container -->
-
 <div class="container">
   <div class="row">
     <div class="col-lg-6">
@@ -38,7 +32,6 @@
 </div>
 
 <!-- services container -->
-
 <div class="container">
   <div class="services">
 
@@ -63,10 +56,7 @@
   </div>
 </div>
 
-
 <!-- client testimonials -->
-
-
 <!-- Carousel wrapper -->
 <div id="carouselExampleControls" class="carousel slide text-center carousel-dark" data-mdb-ride="carousel">
   <div class="carousel-inner">
@@ -154,7 +144,6 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-<!-- Carousel wrapper -->
 
 <!-- contact form -->
 <form class="form-control contact-form">
