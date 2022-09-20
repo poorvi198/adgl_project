@@ -9,19 +9,23 @@ import {HttpClientModule} from '@angular/common/http';
 import {APP_BASE_HREF} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import {AppRoutingModule} from './app-routing.module';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContentComponent,
-    FooterComponent
+    FooterComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModalModule
+    NgbModalModule,
+    AppRoutingModule,
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
