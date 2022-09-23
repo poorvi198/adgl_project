@@ -1,0 +1,29 @@
+<div class="container d-flex">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Licence Id</th>
+      <th scope="col">Date</th>
+      <th scope="col">File Name</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let customer of customers; let i = index">
+      <th scope="row">{{ i+1 }}</th>
+      <td>
+        {{customer.name}}
+      </td>
+      <td>{{customer.licenceId}}</td>
+      <td>{{customer.date | date}}</td>
+      <td>{{customer.fileName}}</td>
+      <td>
+        <button class="btn btn-info me-1" (click)="onDataEdit(i)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+        <button class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
