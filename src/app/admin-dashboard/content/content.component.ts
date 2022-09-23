@@ -25,4 +25,8 @@ export class ContentComponent implements OnInit {
     (modalRef.componentInstance as EditFormComponent).editCustomerData = this.customers[i];
     (modalRef.componentInstance as EditFormComponent).index = i;
   }
+
+  onDataDelete(i: number): void {
+   this.customerService.deleteCustomer(i);
+  }
 }

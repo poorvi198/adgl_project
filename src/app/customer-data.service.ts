@@ -36,4 +36,8 @@ export class CustomerDataService {
   editCustomer(index, customerData: Customer): void {
     this.customerData[index] = {...this.customerData[index], ...customerData};
   }
+
+  deleteCustomer(i: number): void {
+    this.customerData.splice(i,1);
+  }
 }
