@@ -2,3 +2,20 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+html {
+    background-color:rgb(190, 190, 190);
+}
+
+body {
+    padding: 2rem 0.5rem;
+    font-family: 'Raleway',Sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    @media(min-width: 40rem) {
+        padding: 2rem;
+    }
+}

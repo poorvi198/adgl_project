@@ -1,15 +1,28 @@
 .hero-container {
   position: relative;
-  height: 30vh;
+  height: 75vh;
   .hero-image {
+    background-image: url("/assets/images/hero_image.png");
     height: 100%;
     width: 100%;
     opacity: 0.5;
   }
   .certificate-btn {
     position: absolute;
-    top: 37%;
+    top: 45%;
     left: 45%;
+  }
+  .hero-text{
+    position: absolute;
+    text-align: center;
+    top: 32%;
+    left: 45%;
+  }
+  .hero-subtext{
+    position: absolute;
+    text-align: center;
+    top: 38%;
+    left: 44%;
   }
 }
 .contact-form {
@@ -17,8 +30,12 @@
   margin: 2rem auto;
 }
 
+.about-us{
+  margin-top: 8rem;
+}
+
 .services {
-  margin-top:20rem;
+  margin-top: 8rem;
 }
 
 .get-in-touch {
@@ -90,3 +107,7 @@
   cursor: pointer;
 }
 
+.side-image{
+  height:100%;
+  width: 100%;
+}
