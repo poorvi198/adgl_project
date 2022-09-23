@@ -23,5 +23,6 @@ export class ContentComponent implements OnInit {
   onDataEdit(i: number): void {
     const modalRef = this.modalService.open(EditFormComponent);
     (modalRef.componentInstance as EditFormComponent).editCustomerData = this.customers[i];
+    (modalRef.componentInstance as EditFormComponent).index = i;
   }
 }

@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Customer} from '../../utils';
+import {CustomerDataService} from '../../customer-data.service';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-edit-form',
@@ -10,8 +12,9 @@ import {Customer} from '../../utils';
 export class EditFormComponent implements OnInit {
   editForm: FormGroup;
   @Input() editCustomerData: Customer;
+  @Input() index: number;
 
-  constructor() { }
+  constructor(private customerService: CustomerDataService, public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     this.editForm = new FormGroup({
@@ -21,4 +24,7 @@ export class EditFormComponent implements OnInit {
     });
   }
 
+  editCustomer(): void {
+    this.customerService.editCustomer(this.index, this.editForm.value);
+  }
 }

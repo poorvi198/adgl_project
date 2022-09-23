@@ -1,4 +1,4 @@
-<form [formGroup] = editForm class="form-control container">
+<form [formGroup] = editForm class="form-control container" (ngSubmit)="editCustomer(); activeModal.close()">
   <div class="mb-3 row">
     <label class="col-sm-3">Name</label>
     <div class="col-sm-9">
@@ -18,7 +18,7 @@
     </div>
   </div>
   <div>
-    <button type="submit" class="btn btn-success">Done</button>
-    <button type="button" class="btn btn-danger">Cancel</button>
+    <button type="submit" class="btn btn-success me-1">Done</button>
+    <button type="button" class="btn btn-danger" (click)="activeModal.close()">Cancel</button>
   </div>
 </form>

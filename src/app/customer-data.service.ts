@@ -32,4 +32,8 @@ export class CustomerDataService {
   }];
 
   constructor() { }
+
+  editCustomer(index, customerData: Customer): void {
+    this.customerData[index] = {...this.customerData[index], ...customerData};
+  }
 }
