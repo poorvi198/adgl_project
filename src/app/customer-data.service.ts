@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Customer} from './utils';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +33,7 @@ export class CustomerDataService {
     fileName: 'filename 14'
   }];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   editCustomer(index, customerData: Customer): void {
     this.customerData[index] = {...this.customerData[index], ...customerData};
@@ -39,5 +41,9 @@ export class CustomerDataService {
 
   deleteCustomer(i: number): void {
     this.customerData.splice(i,1);
+  }
+
+  addCustomer(customerData: FormData): Observable<{result: string}> {
+    return this.httpClient.post<{result: string}>(`/api/create.php`, customerData);
   }
 }

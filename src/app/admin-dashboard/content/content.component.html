@@ -1,4 +1,7 @@
-<form [formGroup] = addForm class="form-control container">
+<form [formGroup] = addForm class="form-control container" (ngSubmit)="addCustomer()">
+  <div *ngIf="showToaster" class="alert alert-success" role="alert">
+    Successfully Uploaded Customer Data!!!
+  </div>
   <div class="mb-3 row">
     <label class="col-sm-3">Name</label>
     <div class="col-sm-9">
@@ -14,7 +17,7 @@
   <div class="mb-3 row">
     <label class="col-sm-3">Certificate</label>
     <div class="col-sm-9">
-      <input type="file" class="form-control col-sm-9" formControlName="file">
+      <input type="file" class="form-control col-sm-9" formControlName="certificate">
     </div>
   </div>
   <div>

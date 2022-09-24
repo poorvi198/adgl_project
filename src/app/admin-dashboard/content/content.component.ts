@@ -15,6 +15,7 @@ export class ContentComponent implements OnInit {
   active = 'top';
   customers: Customer[];
   addForm: FormGroup;
+  showToaster = false;
 
   constructor(private customerService: CustomerDataService, private modalService: NgbModal) { }
 
@@ -23,7 +24,7 @@ export class ContentComponent implements OnInit {
     this.addForm = new FormGroup({
       name : new FormControl(''),
       licenceId : new FormControl(''),
-      file: new FormControl(null)
+      certificate: new FormControl(null)
     });
   }
 
@@ -35,5 +36,30 @@ export class ContentComponent implements OnInit {
 
   onDataDelete(i: number): void {
    this.customerService.deleteCustomer(i);
+  }
+
+  addCustomer(): void {
+    const uploadData = new FormData(); // Create Form Data object to upload the file in POST FORM
+    const formValue = this.addForm.value;
+    for (const i in formValue) {
+      if (formValue[i] instanceof Blob){  //  Check if key value is file
+        uploadData.append('certificate', formValue[i], formValue[i].name ? formValue[i].name : '');
+      }
+      else {
+        uploadData.append(i, formValue[i]);
+      }
+    }
+    uploadData.append('date_added', new Date().toString());
+    uploadData.append('date_modified', new Date().toString());
+
+    this.customerService.addCustomer(uploadData).subscribe((data) => {
+      if (data.result === 'success') {
+        this.addForm.reset();
+        this.showToaster = true;
+        setTimeout(() => {
+          this.showToaster = false;
+        }, 3000);
+      }
+    });
   }
 }
