@@ -3,6 +3,7 @@ import {Customer} from '../../utils';
 import {CustomerDataService} from '../../customer-data.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {EditFormComponent} from '../edit-form/edit-form.component';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard-content',
@@ -13,11 +14,17 @@ export class ContentComponent implements OnInit {
 
   active = 'top';
   customers: Customer[];
+  addForm: FormGroup;
 
   constructor(private customerService: CustomerDataService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.customers = this.customerService.customerData;
+    this.addForm = new FormGroup({
+      name : new FormControl(''),
+      licenceId : new FormControl(''),
+      file: new FormControl(null)
+    });
   }
 
   onDataEdit(i: number): void {

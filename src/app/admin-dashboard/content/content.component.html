@@ -1,3 +1,28 @@
+<form [formGroup] = addForm class="form-control container">
+  <div class="mb-3 row">
+    <label class="col-sm-3">Name</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control col-sm-9" formControlName="name">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label class="col-sm-3">Licence Id</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" formControlName="licenceId">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label class="col-sm-3">Certificate</label>
+    <div class="col-sm-9">
+      <input type="file" class="form-control col-sm-9" formControlName="file">
+    </div>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success me-1">Add Customer</button>
+    <button type="reset" class="btn btn-info">Reset</button>
+  </div>
+</form>
+
 <div class="container d-flex">
   <table class="table table-striped">
     <thead>
