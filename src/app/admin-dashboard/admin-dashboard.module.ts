@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -14,7 +15,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     AdminDashboardComponent,
     HeaderComponent,
     ContentComponent,
-    EditFormComponent
+    EditFormComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
