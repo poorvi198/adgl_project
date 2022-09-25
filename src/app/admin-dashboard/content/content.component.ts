@@ -4,6 +4,7 @@ import {CustomerDataService} from '../../customer-data.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {EditFormComponent} from '../edit-form/edit-form.component';
 import {FormControl, FormGroup} from '@angular/forms';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-content',
@@ -16,11 +17,12 @@ export class ContentComponent implements OnInit {
   customers: Customer[];
   addForm: FormGroup;
   showToaster = false;
+  certImg: string;
 
   constructor(private customerService: CustomerDataService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.customers = this.customerService.customerData;
+    this.getCustomers();
     this.addForm = new FormGroup({
       name : new FormControl(''),
       licenceId : new FormControl(''),
@@ -31,11 +33,20 @@ export class ContentComponent implements OnInit {
   onDataEdit(i: number): void {
     const modalRef = this.modalService.open(EditFormComponent);
     (modalRef.componentInstance as EditFormComponent).editCustomerData = this.customers[i];
-    (modalRef.componentInstance as EditFormComponent).index = i;
   }
 
   onDataDelete(i: number): void {
-   this.customerService.deleteCustomer(i);
+   this.customerService.deleteCustomer(i).subscribe(data => {
+     console.log(data);
+     this.customers.splice(i, 1);
+   });
+  }
+
+  getCustomers(): void {
+    this.customerService.getCustomers().subscribe(customerData => {
+      this.customers = customerData;
+      this.customerService.customerData = customerData;
+    });
   }
 
   addCustomer(): void {
@@ -59,7 +70,14 @@ export class ContentComponent implements OnInit {
         setTimeout(() => {
           this.showToaster = false;
         }, 3000);
+        this.getCustomers();
       }
     });
+  }
+
+  onFileSelect($event: Event): void {
+    const file = ($event.target as HTMLInputElement).files[0];
+    this.addForm.patchValue({certificate: file});
+    this.addForm.get('certificate').updateValueAndValidity();
   }
 }

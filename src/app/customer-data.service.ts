@@ -1,46 +1,39 @@
-import { Injectable } from '@angular/core';
-import {Customer} from './utils';
+import {Injectable} from '@angular/core';
+import {Customer, CustomerData} from './utils';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerDataService {
 
-  customerData: Customer[] = [{
-    name: 'customer 1',
-    licenceId: '12345',
-    date: new Date(),
-    fileName: 'filename 1'
-  },
-  {
-    name: 'customer 12',
-    licenceId: '1234533',
-    date: new Date(),
-    fileName: 'filename 12'
-  },
-  {
-    name: 'customer 13',
-    licenceId: '1234544',
-    date: new Date(),
-    fileName: 'filename 13'
-  },
-  {
-    name: 'customer 14',
-    licenceId: '1234522',
-    date: new Date(),
-    fileName: 'filename 14'
-  }];
+  customerData: Customer[];
 
   constructor(private httpClient: HttpClient) { }
 
-  editCustomer(index, customerData: Customer): void {
-    this.customerData[index] = {...this.customerData[index], ...customerData};
+  editCustomer(formData: FormData): Observable<{result: string}> {
+    return this.httpClient.post<{result: string}>(`/api/update.php`, formData);
   }
 
-  deleteCustomer(i: number): void {
-    this.customerData.splice(i,1);
+  deleteCustomer(i: number): Observable<any> {
+    return this.httpClient.get(`/api/delete.php?id=${this.customerData[i].id}`);
+  }
+
+  getCustomers(): Observable<Customer[]> {
+    return this.httpClient.get<CustomerData[]>(`/api/get.php`).pipe(map((data: CustomerData[]) => {
+      return data.map(customer => {
+        const customerInfo: Customer = {
+          id: customer.id,
+          name: customer.cust_name,
+          licenceId: customer.licence_id,
+          fileName: customer.file_name,
+          date: customer.date_modified
+        };
+        return customerInfo;
+      });
+    }));
   }
 
   addCustomer(customerData: FormData): Observable<{result: string}> {

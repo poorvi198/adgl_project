@@ -17,7 +17,7 @@
   <div class="mb-3 row">
     <label class="col-sm-3">Certificate</label>
     <div class="col-sm-9">
-      <input type="file" class="form-control col-sm-9" formControlName="certificate">
+      <input type="file" class="form-control col-sm-9" (change)="onFileSelect($event)">
     </div>
   </div>
   <div>
@@ -34,6 +34,7 @@
       <th scope="col">Name</th>
       <th scope="col">Licence Id</th>
       <th scope="col">Date</th>
+      <th scope="col"> Image </th>
       <th scope="col">File Name</th>
       <th scope="col">Action</th>
     </tr>
@@ -46,7 +47,9 @@
       </td>
       <td>{{customer.licenceId}}</td>
       <td>{{customer.date | date}}</td>
-      <td>{{customer.fileName}}</td>
+<!--      <td><a (click)="getCertificateById(customer.licenceId)">{{customer.fileName}}</a></td>-->
+      <td><img src="api/uploads/{{customer.fileName}}" height="50px" width="50px" alt=""></td>
+      <td><a href="api/uploads/{{customer.fileName}}" target=”_blank”>{{customer.fileName}}</a></td>
       <td>
         <button class="btn btn-info me-1" (click)="onDataEdit(i)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
         <button class="btn btn-danger" (click)="onDataDelete(i)"><i class="fa fa-trash" aria-hidden="true"></i></button>

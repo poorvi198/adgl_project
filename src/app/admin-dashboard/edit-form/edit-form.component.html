@@ -6,15 +6,15 @@
     </div>
   </div>
   <div class="mb-3 row">
-    <label class="col-sm-3">file Name</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control col-sm-9" formControlName="fileName">
-    </div>
-  </div>
-  <div class="mb-3 row">
     <label class="col-sm-3">Licence Id</label>
     <div class="col-sm-9">
       <input type="text" class="form-control" formControlName="licenceId">
+    </div>
+  </div>
+  <div class="mb-3 row">
+    <label class="col-sm-3">Certificate</label>
+    <div class="col-sm-9">
+      <input type="file" class="form-control col-sm-9" (change)="onFileSelect($event)">
     </div>
   </div>
   <div>
