@@ -7,10 +7,11 @@ import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
 import {HttpClientModule} from '@angular/common/http';
 import {APP_BASE_HREF} from '@angular/common';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
 import {AppRoutingModule} from './app-routing.module';
 import { MainComponent } from './main/main.component';
+import {LoginComponent} from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainComponent } from './main/main.component';
     HeaderComponent,
     ContentComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { MainComponent } from './main/main.component';
     FormsModule,
     NgbModalModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [{provide: APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
