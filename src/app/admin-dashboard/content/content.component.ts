@@ -37,7 +37,6 @@ export class ContentComponent implements OnInit {
 
   onDataDelete(i: number): void {
    this.customerService.deleteCustomer(i).subscribe(data => {
-     console.log(data);
      this.customers.splice(i, 1);
    });
   }
@@ -60,9 +59,6 @@ export class ContentComponent implements OnInit {
         uploadData.append(i, formValue[i]);
       }
     }
-    uploadData.append('date_added', new Date().toString());
-    uploadData.append('date_modified', new Date().toString());
-
     this.customerService.addCustomer(uploadData).subscribe((data) => {
       if (data.result === 'success') {
         this.addForm.reset();
