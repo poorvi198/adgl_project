@@ -29,7 +29,9 @@ export class CustomerDataService {
           name: customer.cust_name,
           licenceId: customer.licence_id,
           fileName: customer.file_name,
-          date: customer.date_modified
+          date: customer.date_modified,
+          cPrice: customer.price_c,
+          tPrice: customer.price_t
         };
         return customerInfo;
       });

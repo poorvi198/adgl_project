@@ -46,6 +46,8 @@
       <th scope="col">Name</th>
       <th scope="col">Licence Id</th>
       <th scope="col">Date</th>
+      <th scope="col">C Price</th>
+      <th scope="col">T Price</th>
       <th scope="col"> Image </th>
       <th scope="col">File Name</th>
       <th scope="col">Action</th>
@@ -59,6 +61,9 @@
       </td>
       <td>{{customer.licenceId}}</td>
       <td>{{customer.date | date}}</td>
+      <td>{{customer.cPrice}}</td>
+      <td>{{customer.tPrice}}</td>
+
 <!--      <td><a (click)="getCertificateById(customer.licenceId)">{{customer.fileName}}</a></td>-->
       <td><img src="api/uploads/{{customer.fileName}}" height="50px" width="50px" alt=""></td>
       <td><a href="api/uploads/{{customer.fileName}}" target=”_blank”>{{customer.fileName}}</a></td>

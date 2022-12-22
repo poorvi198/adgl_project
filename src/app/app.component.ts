@@ -12,8 +12,8 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.customerService.getCustomers().subscribe(customers => {
-      this.customerService.customerData = customers;
-    });
+    // this.customerService.getCustomers().subscribe(customers => {
+    //   this.customerService.customerData = customers;
+    // });
   }
 }

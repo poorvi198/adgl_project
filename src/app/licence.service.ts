@@ -11,8 +11,9 @@ export class LicenceService {
   constructor(private httpClient: HttpClient, private customerService: CustomerDataService) { }
 
   getCertificate(licenceNo: string): void {
-   const customer = this.customerService.customerData.find((cust) => cust.licenceId === licenceNo);
-   downloadFile(`api/uploads/${customer.fileName}`, customer.fileName);
+    this.httpClient.get(`/api/getFileName.php?licence_id=${licenceNo}`).subscribe((file:{file_name:string}) => {
+      downloadFile(`api/uploads/${file.file_name}`, file.file_name);
+    });
+   
   }
-
 }

@@ -4,6 +4,8 @@ export interface Customer {
   name: string;
   date: Date;
   fileName: string;
+  cPrice: number;
+  tPrice: number;
 }
 
 export interface CustomerData {
@@ -12,6 +14,8 @@ export interface CustomerData {
   cust_name: string;
   date_modified: Date;
   file_name: string;
+  price_c: number;
+  price_t: number;
 }
 
 export function downloadFile(data: string, fileName: string) {
