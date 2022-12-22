@@ -21,7 +21,9 @@ export class EditFormComponent implements OnInit {
     this.editForm = new FormGroup({
       name : new FormControl(this.editCustomerData.name),
       licenceId : new FormControl(this.editCustomerData.licenceId),
-      certificate : new FormControl(null)
+      certificate : new FormControl(null),
+      cPrice : new FormControl(0.0),
+      tPrice : new FormControl(0.0)
     });
     this.httpClient.get(`api/uploads/${this.editCustomerData.fileName}`, {
       responseType: 'blob'

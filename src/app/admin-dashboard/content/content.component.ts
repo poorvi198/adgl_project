@@ -26,6 +26,8 @@ export class ContentComponent implements OnInit {
     this.addForm = new FormGroup({
       name : new FormControl(''),
       licenceId : new FormControl(''),
+      cPrice : new FormControl(0.0),
+      tPrice : new FormControl(0.0),
       certificate: new FormControl(null)
     });
   }
