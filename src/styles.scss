@@ -3,6 +3,9 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+* {
+    box-sizing: border-box;
+  }
 
 html {
     background-color:rgb(190, 190, 190);
@@ -23,4 +26,12 @@ body {
 .header{
   display: flex;
   justify-content: space-between;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
 }

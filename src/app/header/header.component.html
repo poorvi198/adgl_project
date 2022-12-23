@@ -1,15 +1,26 @@
-<div class="nav header">
-  <input type="checkbox" id="nav-check">
-  <div class="nav-header">
-    <div class="nav-title">
+<header class=" header">
+  <nav class="navbar">
+    <a class="nav-logo">
       ADGL
+    </a>
+    <ul class="nav-menu" #navmenu>
+      <li class="nav-item">
+          <a href="#" class="nav-link">home</a>
+      </li>
+      <li class="nav-item">
+          <a href="#" class="nav-link">About us</a>
+      </li>
+      <li class="nav-item">
+          <a href="#" class="nav-link">Services</a>
+      </li>
+      <li class="nav-item">
+          <a href="#" class="nav-link">Contact</a>
+      </li>
+    </ul>
+    <div class="hamburger" (click)="toggleMenu($event)" #hamburger>
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </div>
-  </div>
-
-  <div class="nav-links1">
-    <a href="#">home</a>
-    <a href="#">About us</a>
-    <a href="#">Services</a>
-    <a href="#">contact</a>
-  </div>
-</div>
+  </nav> 
+</header>

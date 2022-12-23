@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
+  @ViewChild('hamburger') hamburger : ElementRef;
+  @ViewChild('navmenu') navmenu : ElementRef;
+
 
   ngOnInit(): void {
   }
 
+  toggleMenu(event: Event): void {
+    this.hamburger.nativeElement.classList.toggle('active');
+    this.navmenu.nativeElement.classList.toggle('active');
+  }
 }
