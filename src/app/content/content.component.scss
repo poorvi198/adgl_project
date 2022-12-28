@@ -3,26 +3,34 @@
   height: 75vh;
   .hero-image {
     background-image: url("/assets/images/hero_image.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     height: 100%;
     width: 100%;
     opacity: 0.5;
   }
   .certificate-btn {
     position: absolute;
-    top: 45%;
-    left: 45%;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
+  
   .hero-text{
     position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    top: 32%;
-    left: 45%;
+    
   }
   .hero-subtext{
     position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    top: 38%;
-    left: 44%;
+    
   }
 }
 .contact-form {
@@ -42,20 +50,20 @@
   max-width: 80%;
   margin: 50px auto;
   position: relative;
-
+  
 }
 .get-in-touch .title {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 3.2em;
+  font-size: 2.8em;
   line-height: 48px;
   padding-bottom: 48px;
-     color: #5543ca;
-    background: #5543ca;
-    background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
+  color: #fcba36;
+  background: #fcba36;
+  background: -moz-linear-gradient(left,#f4524d  0%,#5543ca 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 .contact-form .form-field {
@@ -78,7 +86,7 @@
 .contact-form .input-text:focus + .label,
 .contact-form .input-text.not-empty + .label {
   -webkit-transform: translateY(-24px);
-          transform: translateY(-24px);
+  transform: translateY(-24px);
 }
 .contact-form .label {
   position: absolute;
@@ -136,21 +144,28 @@
   text-decoration: none;
   background: white;
   margin: 1em;
-  padding: 2.75em 2.5em;
+  padding: 2em 1.75em;
   box-shadow: 0 1.5em 2.5em -.5em rgba(#000000, .1);
   transition: transform .45s ease, background .45s ease;
   
+  img {
+    height: 240px;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+  }
+  
   h3 {
     color: #2E3C40;
-    font-size: 2.0em;
+    font-size: 1.7em;
     font-weight: 600;
     line-height: 1;
-    padding-bottom: .5em;
+    padding-bottom: .2em;
     margin: 0 0 0.142857143em;
-    border-bottom: 2px solid #753BBD;
+    border-bottom: 2px solid #fcba36;
     transition: color .45s ease, border .45s ease;
   }
-
+  
   h4 {
     color: #627084;
     text-transform: uppercase;
@@ -161,7 +176,7 @@
     margin: 0 0 1.777777778em;
     transition: color .45s ease;
   }
-
+  
   p {
     opacity: 0;
     color: #FFFFFF;
@@ -171,7 +186,7 @@
     transform: translateY(-1em);
     transition: opacity .45s ease, transform .5s ease;
   }
-
+  
   .link-text {
     display: block;
     color: #753BBD;
@@ -180,7 +195,7 @@
     line-height: 1.2;
     margin: auto 0 0;
     transition: color .45s ease;
-
+    
     svg {
       margin-left: .5em;
       transition: transform .6s ease;
@@ -199,19 +214,19 @@
       color: #FFFFFF;
       border-bottom-color: #fcba36;
     }
-
+    
     h4 {
       color: #FFFFFF;
     }
-
+    
     p {
       opacity: 1;
       transform: none;
     }
-
+    
     .link-text {
       color: #FFFFFF;
-
+      
       svg {
         animation: point 1.25s infinite alternate;
         
@@ -225,9 +240,51 @@
 
 @keyframes point {
   0% {
-   transform: translateX(0);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(.125em);
+  }
+}
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+  .data-card{
+    background: #fcba36;
+    
+    img{
+      height: 175px;
+      width: 175px;
+    }
+    
+    h3{
+      font-size: 1.2em;
+    }
+    
+    p {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  .contact-form {
+    width: 100%;
+  }
+  
+  .hero-container{
+    
+    .certificate-btn {
+      position: absolute;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .hero-subtext{
+      position: absolute;
+     
+      text-align: center;
+      left: 0;
+      transform: translate(0%, 0%);
+    }
   }
 }

@@ -19,4 +19,9 @@ export class HeaderComponent implements OnInit {
     this.hamburger.nativeElement.classList.toggle('active');
     this.navmenu.nativeElement.classList.toggle('active');
   }
+
+  onNavMenuClick(event:Event): void {
+    this.hamburger.nativeElement.classList.remove("active");
+    this.navmenu.nativeElement.classList.remove("active");
+  }
 }
