@@ -6,7 +6,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
   width: 100%;
 }
 .hamburger {
@@ -40,13 +39,14 @@
 }
 
 .nav-link:hover{
-  color: #482ff7;
+  color: #fcba36;
 }
 
 .nav-logo {
-  font-size: 2.1rem;
-  font-weight: 500;
-  color: #482ff7;
+  img{
+    height: 7rem;
+    width: 12rem;
+  }
 }
 @media only screen and (max-width: 768px) {
   .nav-menu {
